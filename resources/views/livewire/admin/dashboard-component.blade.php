@@ -55,8 +55,8 @@
                                 </div>
                                 <div class="d-flex align-items-end justify-content-between mt-4">
                                     <div>
-                                        <h4 class="fs-22 fw-semibold ff-secondary mb-4">$<span class="counter-value" data-target="559.25">0</span></h4>
-                                        <a href="#" class="text-decoration-underline">View total website</a>
+                                        <h4 class="fs-22 fw-semibold ff-secondary mb-4"><span class="counter-value" data-target="{{ $total_site }}">{{ $total_site }}</span></h4>
+                                        <a href="{{ route('admin.website.list') }}" class="text-decoration-underline">View total website</a>
                                     </div>
                                     <div class="avatar-sm flex-shrink-0">
                                         <span class="avatar-title bg-success rounded fs-3">
@@ -79,8 +79,8 @@
                                 </div>
                                 <div class="d-flex align-items-end justify-content-between mt-4">
                                     <div>
-                                        <h4 class="fs-22 fw-semibold ff-secondary mb-4"><span class="counter-value" data-target="36894">0</span></h4>
-                                        <a href="#" class="text-decoration-underline">View expiring domain</a>
+                                        <h4 class="fs-22 fw-semibold ff-secondary mb-4"><span class="counter-value" data-target="{{ $total_site }}">{{ $total_site }}</span></h4>
+                                        <a href="{{ route('admin.website.list') }}" class="text-decoration-underline">View expiring domain</a>
                                     </div>
                                     <div class="avatar-sm flex-shrink-0">
                                         <span class="avatar-title bg-info rounded fs-3">
@@ -98,13 +98,13 @@
                             <div class="card-body">
                                 <div class="d-flex align-items-center">
                                     <div class="flex-grow-1 overflow-hidden">
-                                        <p class="text-uppercase fw-medium text-muted text-truncate mb-0">Total Expiring Domain</p>
+                                        <p class="text-uppercase fw-medium text-muted text-truncate mb-0">Total expired Domain</p>
                                     </div>
                                 </div>
                                 <div class="d-flex align-items-end justify-content-between mt-4">
                                     <div>
-                                        <h4 class="fs-22 fw-semibold ff-secondary mb-4"><span class="counter-value" data-target="183.35">0</span>M </h4>
-                                        <a href="#" class="text-decoration-underline">See all expiring domain</a>
+                                        <h4 class="fs-22 fw-semibold ff-secondary mb-4"><span class="counter-value" data-target="{{ $total_site }}">{{ $total_site }}</span></h4>
+                                        <a href="{{ route('admin.expiry.domain.status') }}" class="text-decoration-underline">See all expired domain</a>
                                     </div>
                                     <div class="avatar-sm flex-shrink-0">
                                         <span class="avatar-title bg-warning rounded fs-3">
@@ -127,8 +127,8 @@
                                 </div>
                                 <div class="d-flex align-items-end justify-content-between mt-4">
                                     <div>
-                                        <h4 class="fs-22 fw-semibold ff-secondary mb-4"><span class="counter-value" data-target="165.89">0</span></h4>
-                                        <a href="#" class="text-decoration-underline">Withdraw money</a>
+                                        <h4 class="fs-22 fw-semibold ff-secondary mb-4"><span class="counter-value" data-target="{{ $suspended_domain }}">{{ $suspended_domain }}</span></h4>
+                                        <a href="{{ route('admin.suspended.website.list') }}" class="text-decoration-underline">View suspended domain list</a>
                                     </div>
                                     <div class="avatar-sm flex-shrink-0">
                                         <span class="avatar-title bg-danger rounded fs-3">

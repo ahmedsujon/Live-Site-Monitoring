@@ -1,14 +1,6 @@
 <div>
     <div class="app-menu navbar-menu">
         <div class="navbar-brand-box">
-            <a href="{{ route('admin.dashboard') }}" class="logo logo-dark">
-                <span class="logo-sm">
-                    <img src="{{ asset('assets/admin/images/logo.png') }}" alt="" height="22">
-                </span>
-                <span class="logo-lg">
-                    <img src="{{ asset('assets/admin/images/logo-dark.png') }}" alt="" height="35">
-                </span>
-            </a>
             <a href="{{ route('admin.dashboard') }}" class="logo logo-light">
                 <span class="logo-sm">
                     <img src="{{ asset('assets/admin/images/logo.png') }}" alt="" height="22">
