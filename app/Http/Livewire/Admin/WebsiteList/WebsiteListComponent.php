@@ -112,6 +112,26 @@ class WebsiteListComponent extends Component
         $this->dispatchBrowserEvent('showEditModal');
     }
 
+    public function updateData()
+    {
+        $this->validate([
+            'url' => 'required|unique:website_lists,url,' . $this->edit_id . '',
+        ]);
+
+        $data = WebsiteList::where('id', $this->edit_id)->first();
+        $data->name = $this->name;
+        $data->url = $this->url;
+        $data->created_on = $this->created_on;
+        $data->expire_date = $this->expire_date;
+        $data->company = $this->company;
+        $data->address = $this->address;
+        $data->save();
+
+        $this->dispatchBrowserEvent('closeModal');
+        $this->dispatchBrowserEvent('success', ['message' => 'Domain updated successfully']);
+    }
+    
+
     private function reCallfunction($getSlider)
     {
         dispatch(function () use ($getSlider) {
