@@ -1,6 +1,6 @@
 <?php
 
-use App\Http\Livewire\App\IndexComponent;
+// use App\Http\Livewire\IndexComponent;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -17,7 +17,7 @@ use Illuminate\Support\Facades\Route;
 //     return view('welcome');
 // });
 
-Route::get('/', IndexComponent::class)->name('website');
+// Route::get('/', IndexComponent::class)->name('website');
 
 //Call Route Files
 require __DIR__ . '/admin.php';

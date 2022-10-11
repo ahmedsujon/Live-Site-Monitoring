@@ -1,13 +1,17 @@
 <?php
 
-use App\Http\Controllers\CSVChunkController;
 use App\Http\Controllers\LogoutController;
 use App\Http\Livewire\Admin\Author\AdminComponent as AuthorAdminComponent;
 use App\Http\Livewire\Admin\DashboardComponent;
+use App\Http\Livewire\Admin\Domain\DomainStatusComponent;
+use App\Http\Livewire\Admin\Domain\ExpiryDomainComponent;
+use App\Http\Livewire\Admin\Monitoring\MonitoringComponent;
 use App\Http\Livewire\Admin\Profile\ProfileComponent;
 
 use App\Http\Livewire\Admin\SocialLink\SocialLinkComponent;
 use App\Http\Livewire\Admin\Tools\CsvChunkComponent;
+use App\Http\Livewire\Admin\WebsiteList\SuspendedSiteComponent;
+use App\Http\Livewire\Admin\WebsiteList\WebsiteListComponent;
 use App\Http\Livewire\Admin\WebsiteSetup\FooterSectionComponent;
 use App\Http\Livewire\Admin\WebsiteSetup\HeaderSectionComponent;
 use App\Http\Livewire\Auth\Admin\LoginComponent;
@@ -35,7 +39,7 @@ Route::prefix('admin/')->name('admin.')->middleware('auth:admin')->group(functio
     Route::get('footer-settings', FooterSectionComponent::class)->name('footer.settings');
 
     // Admin Routes
-    Route::get('management/admins', AuthorAdminComponent::class)->name('adminManagement');
+    Route::get('list', AuthorAdminComponent::class)->name('admin.list');
 
     // Social link Routes
     Route::get('social-link', SocialLinkComponent::class)->name('social.link');
@@ -43,5 +47,19 @@ Route::prefix('admin/')->name('admin.')->middleware('auth:admin')->group(functio
     
     // Tools Routes
     Route::get('tools/csv-chunk', CsvChunkComponent::class)->name('chunkCSV');
-    Route::post('tools/csv-chunk/chunk', [CSVChunkController::class, 'chunkCSV'])->name('chunkCSVPost');
+
+    // Website List Routes
+    Route::get('website-list', WebsiteListComponent::class)->name('website.list');
+
+    // Suspended Website List Routes
+    Route::get('suspended/website-list', SuspendedSiteComponent::class)->name('suspended.website.list');
+
+    // Domain Routes
+    Route::get('domain/status', DomainStatusComponent::class)->name('domain.status');
+
+    // Expiry Domain Routes
+    Route::get('expiry/domain/status', ExpiryDomainComponent::class)->name('expiry.domain.status');
+
+    // Monitoring Domain Routes
+    Route::get('monitoring/domains', MonitoringComponent::class)->name('monitoring.domain');
 });

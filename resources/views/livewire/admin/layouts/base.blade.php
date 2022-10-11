@@ -1,10 +1,10 @@
 <!doctype html>
-<html lang="en" data-layout="vertical" data-topbar="light" data-sidebar="dark" data-sidebar-size="lg" data-sidebar-image="none">
-
+<html lang="en" data-layout="vertical" data-topbar="light" data-sidebar="dark" data-sidebar-size="lg"
+    data-sidebar-image="none">
 <head>
 
     <meta charset="utf-8" />
-    <title>Dashboard | NZCoding</title>
+    <title>Dashboard | IntrigueIt</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta content="Premium Multipurpose Admin & Dashboard Template" name="description" />
     <meta content="Themesbrand" name="author" />
@@ -28,75 +28,61 @@
     <link href="{{ asset('assets/admin/css/app.min.css') }}" rel="stylesheet" type="text/css" />
     <!-- custom Css-->
     <link href="{{ asset('assets/admin/css/custom.min.css') }}" rel="stylesheet" type="text/css" />
-    <!-- Sweet Alert css-->
-    <link href="{{ asset('assets/admin/libs/sweetalert2/sweetalert2.min.css') }}" rel="stylesheet" type="text/css" />
-
     <!-- custom cdn-->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.css"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/limonte-sweetalert2/11.4.26/sweetalert2.min.css"/>
 
     @stack('styles')
     @livewireStyles
 </head>
 <style>
-   
-    .page-content {
+    .page-content{
         margin-top: 5px;
     }
-
-    .page-title-box {
+    .page-title-box{
         background: transparent;
         box-shadow: none;
     }
-
     .spinner-border-sm {
         width: 12px;
         height: 12px;
         border-width: 1px;
     }
-
     .spinner-border-xs {
         width: 10px;
         height: 10px;
         border-width: 1px;
     }
-
     .sinput {
         border: 1px solid #CED4DA;
         border-radius: 4px;
         padding: 5px 7px;
         font-size: 12.5px;
     }
-
     .sinput:focus {
         border: 1px solid #046A70;
         box-shadow: none;
         outline: none;
     }
-
     .search_cont {
         text-align: right;
     }
-
     .sort_cont {
         text-align: left;
     }
-
     @media screen and (max-width: 720px) {
         .search_cont {
             text-align: center;
         }
-
         .sort_cont {
             text-align: center;
         }
     }
-
     .btn-sm {
         padding: 5px 17px;
         font-size: 13.5px;
     }
 </style>
-
 <body>
     <div id="layout-wrapper">
         @livewire('admin.layouts.inc.navbar')
@@ -150,13 +136,11 @@
     <!-- App js -->
     <script src="{{ asset('assets/admin/js/app.js') }}"></script>
 
-    <!-- Sweet Alerts js -->
-    <script src="{{ asset('assets/admin/libs/sweetalert2/sweetalert2.min.js') }}"></script>
-
     <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/limonte-sweetalert2/11.4.26/sweetalert2.min.js"></script>
 
     <script>
-        $(document).ready(function() {
+        $(document).ready(function(){
             toastr.options = {
                 "progressBar": true,
                 "positionClass": "toast-bottom-left"
@@ -172,52 +156,59 @@
         window.addEventListener('error', event => {
             toastr.error(event.detail.message);
         });
-        @if (Session::has('success'))
-            toastr.options = {
-                "progressBar": true,
-                "positionClass": "toast-bottom-left"
-            }
-            toastr.success("{{ session('success') }}");
+        @if(Session::has('success'))
+            toastr.options =
+                {
+                    "progressBar" : true,
+                    "positionClass": "toast-bottom-left"
+                }
+                toastr.success("{{ session('success') }}");
         @endif
-        @if (Session::has('error'))
-            toastr.options = {
-                "progressBar": true,
-                "positionClass": "toast-top-right"
-            }
-            toastr.error("{{ session('error') }}");
+        @if(Session::has('error'))
+            toastr.options =
+                {
+                    "progressBar" : true,
+                    "positionClass": "toast-top-right"
+                }
+                toastr.error("{{ session('error') }}");
         @endif
+
 
         //SWL
         window.addEventListener('show-delete-confirmation', event => {
             Swal.fire({
-                title: "Are you sure?",
-                text: "You won't be able to revert this!",
-                icon: "warning",
-                showCancelButton: !0,
-                confirmButtonClass: "btn btn-primary w-xs me-2 mt-2",
-                cancelButtonClass: "btn btn-danger w-xs mt-2",
-                confirmButtonText: "Yes, delete it!",
-                buttonsStyling: !1,
-                showCloseButton: !0
+            title: 'Are you sure?',
+            text: "You won't be able to revert this!",
+            icon: 'warning',
+            showCancelButton: true,
+            confirmButtonColor: '#3085d6',
+            cancelButtonColor: '#d33',
+            confirmButtonText: 'Yes, Delete !'
             }).then((result) => {
                 if (result.isConfirmed) {
                     Livewire.emit('deleteConfirmed')
                 }
             })
         });
+
+        //Success Delete
+        window.addEventListener('categoryDeleted', event => {
+            Swal.fire(
+                'Deleted!',
+                'Category has been deleted successfully.',
+                'success'
+            )
+        });
+
     </script>
 
     <script>
-        $(document).ready(function() {
-            $('.statusPreLoad').on('click', function() {
-                $(this).html(
-                    '<span class="spinner-border spinner-border-xs" role="status" aria-hidden="true"></span>'
-                    );
+        $(document).ready(function(){
+            $('.statusPreLoad').on('click', function(){
+                $(this).html('<span class="spinner-border spinner-border-xs" role="status" aria-hidden="true"></span>');
             });
-            $('.btnPreLoad').on('click', function() {
-                $(this).html(
-                    '<span class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span>'
-                    );
+            $('.btnPreLoad').on('click', function(){
+                $(this).html('<span class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span>');
             });
         });
     </script>
@@ -225,5 +216,4 @@
     @stack('scripts')
     @livewireScripts
 </body>
-
 </html>

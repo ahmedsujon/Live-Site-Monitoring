@@ -3,7 +3,6 @@
 namespace App\Http\Livewire\Admin\Tools;
 
 use Livewire\Component;
-use Livewire\WithFileUploads;
 
 class CsvChunkComponent extends Component
 {

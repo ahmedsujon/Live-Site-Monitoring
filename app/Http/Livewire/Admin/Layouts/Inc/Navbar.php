@@ -12,6 +12,7 @@ class Navbar extends Component
         Artisan::call('cache:clear');
         Artisan::call('route:clear');
         Artisan::call('config:clear');
+        Artisan::call('config:cache');
         Artisan::call('view:clear');
         $this->dispatchBrowserEvent('success', ['message'=>'Website optimized successfully']);
     }
