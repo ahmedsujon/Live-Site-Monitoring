@@ -31,7 +31,7 @@ class WebsiteListComponent extends Component
                 $getdata->site_status = $status;
                 $getdata->save();
                 $emails = [
-                    "sumit@gmail.com",
+                    "sujonahmed424@gamil.com"
                 ];
                 if ($status == 500) {
                     foreach ($emails as $email) {
@@ -141,7 +141,7 @@ class WebsiteListComponent extends Component
             $getdata->save();
 
             $emails = [
-                "sumit@gmail.com",
+                "sujonahmed424@gamil.com"
             ];
             if ($status == 500) {
                 foreach ($emails as $email) {
