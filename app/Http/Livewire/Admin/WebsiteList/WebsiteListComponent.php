@@ -21,6 +21,10 @@ class WebsiteListComponent extends Component
     {
         $getSlider = WebsiteList::where('id', $id)->first();
 
+        // $url = 'https://gearinsane.com/';
+        // $headers = get_headers($url, 1);
+        // dd($headers);
+
         if ($getSlider->status == 0) {
             $getSlider->status = 1;
             $getSlider->save();
