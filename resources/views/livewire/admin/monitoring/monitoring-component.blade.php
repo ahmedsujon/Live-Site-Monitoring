@@ -50,12 +50,18 @@
                         <tbody>
                             @if ($monitorings->count() > 0)
                             @foreach ($monitorings as $websitelist)
+                            @php
+                            $to = \Carbon\Carbon::parse($websitelist->expire_date);
+                            $from = \Carbon\Carbon::now();
+                            $diff_in_days = $to->diffInDays($from);
+                            @endphp
+
                             <tr>
                                 <td>{{ $websitelist->name }}</td>
                                 <td>{{ $websitelist->url }}</td>
                                 <td>{{ $websitelist->created_on }}</td>
                                 <td>{{ $websitelist->expire_date }}</td>
-                                <td>{{ $websitelist->address }}</td>
+                                <td>{{ $diff_in_days }} days</td>
                             </tr>
                             @endforeach
                             @else

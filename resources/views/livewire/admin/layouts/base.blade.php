@@ -102,11 +102,11 @@
                         <div class="col-sm-6">
                             <script>
                                 document.write(new Date().getFullYear())
-                            </script> © NZCoding.
+                            </script> © Intrigue It Solutions.
                         </div>
                         <div class="col-sm-6">
                             <div class="text-sm-end d-none d-sm-block">
-                                Design & Develop by NZCoding
+                                Design & Develop by Intrigue It Solutions
                             </div>
                         </div>
                     </div>

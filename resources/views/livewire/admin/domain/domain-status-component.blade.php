@@ -57,6 +57,7 @@
                             $from = \Carbon\Carbon::now();
                             $diff_in_days = $to->diffInDays($from);
                             @endphp
+                            
                             <tr>
                                 <td>{{ $websitelist->name }}</td>
                                 <td>{{ $websitelist->url }}</td>

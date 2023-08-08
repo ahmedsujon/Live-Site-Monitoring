@@ -4,7 +4,7 @@
     <div class="layout-wrapper landing">
         <nav class="navbar navbar-expand-lg navbar-landing navbar-light fixed-top" id="navbar">
             <div class="container">
-                <a class="navbar-brand" href="index.html">
+                <a class="navbar-brand" href="#">
                     <img style="height: 40px;" src="{{ asset('assets/admin/images/logo.png') }}" class="card-logo card-logo-dark"
                         alt="logo dark" height="17">
                     <img style="height: 40px;" src="{{ asset('assets/admin/images/logo-light.png') }}" class="card-logo card-logo-light"
@@ -19,24 +19,24 @@
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                     <ul class="navbar-nav mx-auto mt-2 mt-lg-0" id="navbar-example">
                         <li class="nav-item">
-                            <a class="nav-link fs-15 active" href="#hero">Home</a>
+                            <a class="nav-link fs-15 active" href="#">Home</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link fs-15" href="#wallet">Wallet</a>
+                            <a class="nav-link fs-15" href="#">Wallet</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link fs-15" href="#marketplace">Marketplace</a>
+                            <a class="nav-link fs-15" href="#">Marketplace</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link fs-15" href="#categories">Categories</a>
+                            <a class="nav-link fs-15" href="#">Categories</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link fs-15" href="#creators">Creators</a>
+                            <a class="nav-link fs-15" href="#">Creators</a>
                         </li>
                     </ul>
 
                     <div class="">
-                        <a href="apps-nft-wallet.html" class="btn btn-success">Wallet Connect</a>
+                        <a href="#" class="btn btn-success">Wallet Connect</a>
                     </div>
                 </div>
 
@@ -61,9 +61,9 @@
                                     style="width:100%">
                                     <thead style="color: #d1d0d0;">
                                         <tr>
-                                            <th>Monitoring URL</th>
-                                            <th>Company</th>
-                                            <th>IP Address</th>
+                                            <th>Website URL</th>
+                                            <th>Register Date</th>
+                                            <th>Expire Date</th>
                                             <th>Last Report</th>
                                             <th>Status</th>
                                         </tr>
@@ -71,19 +71,17 @@
                                     <tbody>
                                         @foreach ($site_status as $item)
                                            <tr>
-                                            <td><span class="badge badge-soft-info">https://github.com/ahmedsujon</span>
-                                            </td>
-                                            <td><span class="badge badge-soft-info">Post launch reminder</span></td>
-                                            <td><span class="badge badge-soft-info">103.217.111.253</span></td>
-                                            <td><span class="badge badge-soft-info">2022-09-26 20:27:13</span></td>
+                                            <td><span class="badge badge-soft-info"><a href="{{ $item->url }}" target="_blank">{{ $item->url }}</a></span></td>
+                                            <td><span class="badge badge-soft-info">{{ $item->created_on }}</span></td>
+                                            <td><span class="badge badge-soft-info">{{ $item->expire_date }}</span></td>
+                                            <td><span class="badge badge-soft-info">{{ $item->site_status }}</span></td>
                                             <td>
                                                 <button type="button" class="btn btn-success position-relative">
-                                                    200 OK
+                                                    {{ $item->site_status }}
                                                 </button>
                                             </td>
                                         </tr>  
                                         @endforeach
-                                       
                                     </tbody>
                                 </table>
                             </div>
@@ -117,10 +115,10 @@
                                 <h5 class="text-white mb-0">Company</h5>
                                 <div class="text-muted mt-3">
                                     <ul class="list-unstyled ff-secondary footer-list">
-                                        <li><a href="pages-profile.html">About Us</a></li>
-                                        <li><a href="pages-gallery.html">Gallery</a></li>
-                                        <li><a href="apps-projects-overview.html">Projects</a></li>
-                                        <li><a href="pages-timeline.html">Timeline</a></li>
+                                        <li><a href="#">About Us</a></li>
+                                        <li><a href="#">Gallery</a></li>
+                                        <li><a href="#l">Projects</a></li>
+                                        <li><a href="#">Timeline</a></li>
                                     </ul>
                                 </div>
                             </div>
@@ -128,11 +126,11 @@
                                 <h5 class="text-white mb-0">Apps Pages</h5>
                                 <div class="text-muted mt-3">
                                     <ul class="list-unstyled ff-secondary footer-list">
-                                        <li><a href="pages-pricing.html">Calendar</a></li>
-                                        <li><a href="apps-mailbox.html">Mailbox</a></li>
-                                        <li><a href="apps-chat.html">Chat</a></li>
-                                        <li><a href="apps-crm-deals.html">Deals</a></li>
-                                        <li><a href="apps-tasks-kanban.html">Kanban Board</a></li>
+                                        <li><a href="#">Calendar</a></li>
+                                        <li><a href="#">Mailbox</a></li>
+                                        <li><a href="#">Chat</a></li>
+                                        <li><a href="#">Deals</a></li>
+                                        <li><a href="#">Kanban Board</a></li>
                                     </ul>
                                 </div>
                             </div>
@@ -140,8 +138,8 @@
                                 <h5 class="text-white mb-0">Support</h5>
                                 <div class="text-muted mt-3">
                                     <ul class="list-unstyled ff-secondary footer-list">
-                                        <li><a href="pages-faqs.html">FAQ</a></li>
-                                        <li><a href="pages-faqs.html">Contact</a></li>
+                                        <li><a href="#">FAQ</a></li>
+                                        <li><a href="#">Contact</a></li>
                                     </ul>
                                 </div>
                             </div>

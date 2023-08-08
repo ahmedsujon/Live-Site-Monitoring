@@ -53,7 +53,7 @@
                             @foreach ($expiry_domain as $websitelist)
                             @php
                             $to = \Carbon\Carbon::parse($websitelist->expire_date);
-                            $from = \Carbon\Carbon::parse($websitelist->created_on);
+                            $from = \Carbon\Carbon::now();
                             $diff_in_days = $to->diffInDays($from);
                             @endphp
                             <tr>

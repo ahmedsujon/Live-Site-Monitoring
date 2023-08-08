@@ -19,18 +19,18 @@ class WebsiteListComponent extends Component
 
     public function publishStatus($id)
     {
-        $getSlider = WebsiteList::where('id', $id)->first();
+        $getSiteStatus = WebsiteList::where('id', $id)->first();
 
         // $url = 'https://gearinsane.com/';
         // $headers = get_headers($url, 1);
         // dd($headers);
 
-        if ($getSlider->status == 0) {
-            $getSlider->status = 1;
-            $getSlider->save();
+        if ($getSiteStatus->status == 0) {
+            $getSiteStatus->status = 1;
+            $getSiteStatus->save();
 
-            dispatch(function () use ($getSlider) {
-                $getdata = WebsiteList::find($getSlider->id);
+            dispatch(function () use ($getSiteStatus) {
+                $getdata = WebsiteList::find($getSiteStatus->id);
                 $status = sizeof(dns_get_record($getdata->url)) > 0 ? 200 : 500;
                 $getdata->site_status = $status;
                 $getdata->save();
@@ -65,14 +65,14 @@ class WebsiteListComponent extends Component
                     }
                 }
 
-                if($getSlider->status != 0) {
-                   $this->reCallfunction($getSlider); 
+                if($getSiteStatus->status != 0) {
+                   $this->reCallfunction($getSiteStatus); 
                 }
 
             })->delay(5);
         } else {
-            $getSlider->status = 0;
-            $getSlider->save();
+            $getSiteStatus->status = 0;
+            $getSiteStatus->save();
         }
 
         $this->dispatchBrowserEvent('success', ['message' => 'Status updated successfully']);
@@ -136,10 +136,10 @@ class WebsiteListComponent extends Component
     }
     
 
-    private function reCallfunction($getSlider)
+    private function reCallfunction($getSiteStatus)
     {
-        dispatch(function () use ($getSlider) {
-            $getdata = WebsiteList::find($getSlider->id);
+        dispatch(function () use ($getSiteStatus) {
+            $getdata = WebsiteList::find($getSiteStatus->id);
             $status = sizeof(dns_get_record($getdata->url)) > 0 ? 200 : 500;
             $getdata->site_status = $status;
             $getdata->save();
@@ -174,8 +174,8 @@ class WebsiteListComponent extends Component
                     }
                 }
                 
-            if($getSlider->status != 0) {
-               $this->reCallfunction($getSlider); 
+            if($getSiteStatus->status != 0) {
+               $this->reCallfunction($getSiteStatus); 
             }
         })->delay(5);
         // })->delay(Carbon::now()->addHours(24));
